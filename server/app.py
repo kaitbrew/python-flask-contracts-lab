@@ -17,9 +17,8 @@ def contract_search(id):
 
 @app.route('/customer/<customer_name>')
 def customer_search(customer_name):
-    for customer in customers:
-        if customer["customer_name"]==customer_name:
-            return make_response("",204)
+    if customer_name in customers:
+        return make_response("",204)
     return make_response("",404)
 
 if __name__ == '__main__':
